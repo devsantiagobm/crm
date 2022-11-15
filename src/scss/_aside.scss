@@ -1,0 +1,154 @@
+.aside {
+    width: var(--aside-width);
+    background-color: var(--bg-aside);
+    color: var(--color-aside-inactive);
+    position: fixed;
+    left: 0;
+    height: 100vh;
+
+    &__logo {
+        width: 100%;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        background-color: var(--color-complementary);
+        color: hsl(0, 0%, 5%);
+        font-size: 20px;
+        margin: 0 0 40px;
+
+        &-component {
+            animation: infinite-rotate 10s linear infinite;
+
+            @keyframes infinite-rotate {
+                from {
+                    rotate: 0deg;
+                }
+
+                to {
+                    rotate: 360deg;
+                }
+            }
+        }
+    }
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__box {
+        font-size: 24px;
+        position: relative;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        transition: color .2s ease;
+        color: var(--color-aside-inactive);
+
+        &.aside__box--active,
+        &:hover {
+            color: var(--color-aside);
+        }
+
+        &.aside__box--active>.aside__icon {
+            filter: drop-shadow(0 0 4px var(--color-aside));
+
+        }
+
+
+        &::before {
+            content: "";
+            width: 2px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            height: 70%;
+            opacity: 0;
+            transition: opacity 5s ease;
+            background-color: var(--color-complementary);
+            box-shadow: 0 0 20px 2px var(--color-complementary);
+        }
+
+        &.aside__box--active::before {
+
+            animation: show-in .4s ease both;
+
+            @keyframes show-in {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+
+
+    }
+
+    &__icon {
+        cursor: pointer;
+    }
+
+    &__mode {
+        width: 100%;
+
+        aspect-ratio: 1;
+        position: absolute;
+        bottom: 0;
+        display: grid;
+        color: var(--color-aside);
+        cursor: pointer;
+        place-items: center;
+    }
+}
+
+@mixin aside-592 {
+    .aside {
+        --aside-width: 100%;
+        bottom: 0;
+        height: 50px;
+        display: flex;
+        z-index: 1;
+
+        &__logo {
+            display: none;
+        }
+
+        &__actions {
+            width: 100%;
+            flex-direction: row;
+        }
+
+        &__mode {
+            z-index: 10;
+            width: 48px;
+            font-size: 1.2rem;
+            aspect-ratio: 1;
+            position: absolute;
+            bottom: 64px;
+            right: 24px;
+            color: var(--color-main);
+            background-color: var(--bg-main);
+            border-radius: 50%;
+        }
+
+        &__box {
+            height: 100%;
+
+            &::before {
+                top: unset;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 30%;
+            }
+        }
+    }
+}

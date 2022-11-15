@@ -1,0 +1,15 @@
+.layout{
+    display: flex;
+    min-height: 100vh;
+}
+
+.main{
+    background-color: var(--bg-main);
+    color: var(--color-main);
+    width: var(--main-width);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 10vh 5vw;
+    margin: 0 0 0 var(--aside-width);
+}

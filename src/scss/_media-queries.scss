@@ -1,0 +1,25 @@
+@use './index' as *;
+@use './aside' as *;
+@use './search' as *;
+@use './form' as *;
+
+
+@media screen and (max-width:740px){
+    @include index-740;
+}
+
+@media screen and(max-width: 592px){
+    html{
+        --aside-width: 0;
+        --main-width: 100%;
+    }
+
+    .main{
+        padding: 15vh 5vw
+    }
+
+    @include index-592;
+    @include aside-592;
+    @include search-592;
+    @include form-592;
+}

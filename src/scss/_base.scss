@@ -1,0 +1,34 @@
+html {
+    --bg-main: hsl(0, 0%, 87%);
+    --bg-form-main: hsl(0, 0%, 95%);
+    --bg-aside: #000814;
+    --color-complementary: #c1121f;
+
+    --color-aside: hsl(239, 94%, 95%);
+    --color-main: hsl(0, 0%, 5%);
+
+    --aside-width: 50px;
+    --main-width: calc(100% - var(--aside-width));
+
+    --color-aside-inactive: hsl(100, 0%, 50%);
+
+    --error: #ec212f;
+    
+    --color-cards: #eee;
+    --client-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    color-scheme: light;
+}
+
+html[dark="true"] {    
+    --bg-main: hsl(0, 0%, 5%);
+    --color-main: hsl(0, 0%, 87%);
+    --color-cards: hsl(0, 0%, 20%);
+    --client-shadow: none;
+    --error: #ec212f;
+
+    color-scheme: dark;
+
+}

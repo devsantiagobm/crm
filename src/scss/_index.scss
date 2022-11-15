@@ -1,0 +1,204 @@
+.index {
+    width: 100%;
+    animation: show-in .4s both;
+    min-height: 70vh;
+
+    &__title {
+        font-size: 2.2rem;
+        margin: 0 0 12px;
+    }
+
+    &__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, calc(1fr / 3)));
+        justify-content: center;
+        column-gap: 16px;
+        row-gap: 32px;
+        margin: 40px 0 0;        
+        
+        &--animation{
+            animation: show-in-visible .3s ease both;
+
+            @keyframes show-in-visible {
+                from{
+                    visibility: hidden;
+                    opacity: 0;
+                }
+                to{
+                    visibility: visible;
+                    opacity: 1;
+                    
+                }
+            }
+        }
+
+    }
+
+    &__input {
+        transform: scale(0);
+    }
+
+    &__bold {
+        font-weight: 700;
+    }
+
+    &__new{
+        font-size: .8rem;
+        padding: 16px 24px;
+        z-index: 1;
+        background-color: var(--color-cards);
+        position: fixed;
+        right: 40px;
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        top: 24px;
+        transition: opacity .2s ease, visibility .2s ease;
+        opacity: 0;
+        visibility: hidden;
+        
+        &--active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    }
+}
+
+.client {
+    background-color: var(--color-cards);
+    box-shadow: var(--client-shadow);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    
+    &__bg {
+        width: 100%;
+        aspect-ratio: 1 / 0.4;
+        padding: 24px;
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(13, 13, 13, .7);
+            ;
+            z-index: 1;
+        }
+
+    }
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: block;
+    }
+
+    &__name {
+        position: relative;
+        z-index: 1;
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: var(--color-aside);
+        text-transform: capitalize;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 24px;
+    }
+
+    &__action {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__value{
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-wrap: nowrap;
+    }
+
+    &__semibold {
+        font-weight: 700;
+    }
+
+    &__flex {
+        font-size: .85rem;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        max-width: 85%;
+    }
+
+    &__icon {
+        cursor: pointer;
+        color: var(--color-main);
+        transition: transform .2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    &__information {
+        max-width: calc(100% - 9ch);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 16px 24px;
+    }
+
+    &__button {
+        background-color: var(--bg-aside);
+        color: var(--color-aside);
+        aspect-ratio: 1;
+        font-size: 1.1rem;
+        padding: 8px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: filter .2s ease;
+
+        &:hover {
+            filter: brightness(150%);
+        }
+
+        &--delete {
+            background-color: var(--error);
+        }
+    }
+
+}
+
+@mixin index-740{
+    .index{
+        &__grid{
+            grid-template-columns: repeat(auto-fit, minmax(350px,calc(1fr / 2)));
+
+        }
+    }
+}
+
+@mixin index-592{
+    .index{
+        &__grid{
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    }
+}
